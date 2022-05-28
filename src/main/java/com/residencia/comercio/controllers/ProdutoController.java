@@ -58,13 +58,6 @@ public class ProdutoController {
 		return new ResponseEntity<>(produtoService.saveProduto(produto), HttpStatus.CREATED);
 	}
 
-	@PostMapping(value = "/com-foto", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.MULTIPART_FORM_DATA_VALUE })
-	public ResponseEntity<Produto> saveProdutoWithImage(@RequestPart("produto") String produto,
-			@RequestPart("file") MultipartFile file) {
-		return new ResponseEntity<>(produtoService.saveProdutoWithImage(produto, file), HttpStatus.CREATED);
-	}
-
 	@PostMapping("/dto")
 	public ResponseEntity<ProdutoDTO> saveProdutoDTO(@RequestBody ProdutoDTO produtoDTO) {
 		produtoService.saveProdutoDTO(produtoDTO);

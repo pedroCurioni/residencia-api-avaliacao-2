@@ -50,35 +50,6 @@ public class ProdutoService {
 		return produtoRepository.save(produto);
 	}
 
-	public Produto saveProdutoWithImage(String produto, MultipartFile file) {
-		Produto newProduto = new Produto();
-		
-		try {
-			ObjectMapper objMapper = new ObjectMapper();
-			newProduto = objMapper.readValue(produto, Produto.class);
-		} catch (IOException e) {
-			System.out.println("Erro de conversão");
-			e.printStackTrace();
-		}
-		
-		Produto produtoSaved = produtoRepository.save(newProduto);
-		
-		String filename = produtoSaved.getIdProduto()+"."+StringUtils.cleanPath(file.getOriginalFilename());
-		
-		try {
-			Files.copy(file.getInputStream(), path.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			produtoSaved.setImagemProduto(path.resolve(filename).toRealPath().toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return produtoRepository.save(produtoSaved);
-	}
 	
 	public Produto saveProdutoDTO(ProdutoDTO produtoDTO) {
 		return produtoRepository.save(produtoDTOtoEntity(produtoDTO));
