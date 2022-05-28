@@ -32,9 +32,6 @@ public class Produto {
 	@NotEmpty(message = "O nome do produto não pode ficar em branco.")
 	private String nomeProduto;
 
-	@Column(name = "imagem")
-	private String imagemProduto;
-
 	@ManyToOne
 	@JoinColumn(name = "id_fornecedor", referencedColumnName = "id_fornecedor")
 	private Fornecedor fornecedor;
@@ -65,14 +62,6 @@ public class Produto {
 
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
-	}
-
-	public String getImagemProduto() {
-		return imagemProduto;
-	}
-
-	public void setImagemProduto(String imagemProduto) {
-		this.imagemProduto = imagemProduto;
 	}
 
 	public Fornecedor getFornecedor() {
