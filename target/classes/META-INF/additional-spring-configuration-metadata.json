@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "files.folder.path",
+  "type": "java.lang.String",
+  "description": "Define caminho padrão para leitura e escrita de arquivos."
+}]}
