@@ -62,9 +62,6 @@ As credenciais para acesso ao banco de dados e o nome do contexto da API deverã
 
 ## Sobre
 
-- Author - [Alexandre Paixão] - until May 26th, 2022.
-- Author - [Mateus Reis] - since May 26th, 2022.
-
 ## Licença
 
 GNU GPL
